@@ -1,0 +1,5 @@
+[submodule "vendor/ceedling"]
+	path = vendor/ceedling
+	url = https://github.com/CezaryGapinski/Ceedling.git
+	branch = specific_preprocessor_defines_for_tests
+
