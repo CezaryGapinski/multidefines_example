@@ -39,6 +39,10 @@
   :test_preprocess:
     - *common_defines
     - TEST
+  :TestAdcConductorSpecial:
+    - *common_defines
+    - TEST
+    - SPECIAL_DEF
 
 :cmock:
   :when_no_prototypes: :warn

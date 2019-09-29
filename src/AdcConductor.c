@@ -22,8 +22,12 @@ bool AdcConductor_JustHereToTest(void)
     EXAMPLE_STRUCT_T ExampleStruct;
     ExampleStruct.x = 5;
     ExampleStruct.y = 7;
-
+#ifdef SPECIAL_DEF
+    AdcModel_DoNothingExceptTestASpecialType(ExampleStruct);
+    return FALSE;
+#else
     return AdcModel_DoNothingExceptTestASpecialType(ExampleStruct);
+#endif
 }
 
 bool AdcConductor_AlsoHereToTest(void)
