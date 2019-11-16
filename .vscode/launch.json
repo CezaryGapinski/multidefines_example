@@ -1,0 +1,39 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Local File",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "program": "${workspaceRoot}/vendor/ceedling/bin/ceedling",
+            //"args": ["test:all"]
+            "args": ["gcov:all", "utils:gcov"]
+            //"args": ["test:AdcHardware"]
+            //"args": ["options:TestAdcConductorSpecial", "test:all"]
+        },
+        {
+            "name": "Ceedling Test Explorer Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/test/out/${command:ceedlingExplorer.debugTestExecutable}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}

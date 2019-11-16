@@ -1,0 +1,5 @@
+{
+  "ruby.intellisense": "rubyLocate",
+  "editor.rulers": [80,120],
+  "ceedlingExplorer.debugConfiguration" : "Ceedling Test Explorer Debug"
+}
