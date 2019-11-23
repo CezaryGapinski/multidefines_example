@@ -40,7 +40,8 @@
   # in order to add common defines:
   #  1) remove the trailing [] from the :common: section
   #  2) add entries to the :common: section (e.g. :test: has TEST defined)
-  :commmon: &common_defines []
+  :commmon: &common_defines
+    - UNIT_TEST
   :test:
     - *common_defines
     - TEST
@@ -55,7 +56,7 @@
     - *common_defines
     - TEST
     - SPEC_FEATURE
-
+  :use_test_definition: TRUE
 :cmock:
   :mock_prefix: mock_
   :when_no_prototypes: :warn
@@ -79,19 +80,6 @@
 # Ceedling defaults to using gcc for compiling, linking, etc.
 # As [:tools] is blank, gcc will be used (so long as it's in your system path)
 # See documentation to configure a given toolchain for use
-
-# LIBRARIES
-# These libraries are automatically injected into the build process. Those specified as
-# common will be used in all types of builds. Otherwise, libraries can be injected in just
-# tests or releases. These options are MERGED with the options in supplemental yaml files.
-:libraries:
-  :placement: :end
-  :flag: "${1}"  # or "-L ${1}" for example
-  :common: &common_libraries []
-  :test:
-    - *common_libraries
-  :release:
-    - *common_libraries
 
 :plugins:
   :load_paths:
