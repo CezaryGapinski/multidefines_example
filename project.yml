@@ -9,6 +9,7 @@
   :use_exceptions: FALSE
   :use_test_preprocessor: TRUE
   :use_auxiliary_dependencies: TRUE
+  :use_deep_dependencies: TRUE
   :build_root: build
   # :release_build: TRUE
   :test_file_prefix: Test
@@ -32,7 +33,8 @@
     - test/support
 
 :defines:
-  :common: &common_defines []
+  :common: &common_defines
+    - UNIT_TEST
   :test:
     - *common_defines
     - TEST
@@ -43,6 +45,7 @@
     - *common_defines
     - TEST
     - DUMMY
+  :use_test_definition: TRUE
 
 # LIBRARIES
 # These libraries are automatically injected into the build process. Those specified as
@@ -82,7 +85,20 @@
     - -lm
 :gcov:
   :html_report_type: detailed
-  :merge_results: TRUE
+  #:merge_results: TRUE
+  #:html_report: TRUE
+  #:json_report: TRUE
+  #:print_summary: TRUE
+  #:text_report: TRUE
+  # Specify the reports to generate.
+  # Defaults to HtmlBasic.
+  :report_types:
+    - HtmlBasic     # Make an HTML summary report. (gcovr --html)
+    - HtmlDetailed  # Make an HTML report with line by line coverage of each source file. (gcovr --html-details)
+    - Text          # Make a Text report, which may be output to the console or a file.
+    - Cobertura     # Make a Cobertura XML report. (gcovr --xml)
+    - SonarQube     # Make a SonarQube XML report. (gcovr --sonarqube)
+    - JSON          # Make a JSON report. (gcovr --json)
 
 :plugins:
   :load_paths:
