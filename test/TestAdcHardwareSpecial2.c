@@ -14,9 +14,7 @@ void tearDown(void)
 
 void testInitShouldDelegateToConfiguratorAndTemperatureSensor(void)
 {
-  #ifdef DUMMY
-  Adc_ResetDummy_Expect();
-  #endif
+  Adc_Reset_Expect();
   Adc_ConfigureMode_Expect();
   Adc_EnableTemperatureChannel_Expect();
   Adc_StartTemperatureSensorConversion_Expect();

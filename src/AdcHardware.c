@@ -5,7 +5,11 @@
 
 void AdcHardware_Init(void)
 {
+  #ifdef DUMMY
+  Adc_ResetDummy();
+  #else
   Adc_Reset();
+  #endif
   Adc_ConfigureMode();
   Adc_EnableTemperatureChannel();
   Adc_StartTemperatureSensorConversion();

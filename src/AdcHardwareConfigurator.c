@@ -2,10 +2,17 @@
 #include "AdcHardwareConfigurator.h"
 #include "ModelConfig.h"
 
+#ifdef DUMMY
+void Adc_ResetDummy(void)
+{
+  AT91C_BASE_ADC->ADC_CR = AT91C_ADC_SWRST;
+}
+#else
 void Adc_Reset(void)
 {
   AT91C_BASE_ADC->ADC_CR = AT91C_ADC_SWRST;
 }
+#endif
 
 void Adc_ConfigureMode(void)
 {
