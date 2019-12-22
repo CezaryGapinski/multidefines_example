@@ -1,6 +1,9 @@
 #include "unity.h"
 #include "Types.h"
+#include "custom_types/CustomTypes.h"
 #include <math.h>
+
+#define TEST_CASE(...)
 
 TEST_FILE("TemperatureCalculator.c")
 
@@ -12,6 +15,16 @@ void setUp(void)
 
 void tearDown(void)
 {
+}
+
+#define TEST_ASSERT_EQUAL_MY_UINT32(expected, actual) \
+  UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, __LINE__, NULL)
+
+TEST_CASE(1, 2)
+TEST_CASE(3, 3)
+void testMyCustomUint32(my_uint32 a, my_uint32 b)
+{
+  TEST_ASSERT_EQUAL_MY_UINT32(a, b);
 }
 
 void testTemperatureCalculatorShouldCalculateTemperatureFromMillivolts(void)

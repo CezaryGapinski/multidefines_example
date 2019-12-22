@@ -13,6 +13,9 @@
   # :release_build: TRUE
   :test_file_prefix: Test
 
+:unity:
+  :use_param_tests: TRUE
+
 #:release_build:
 #  :output: TempSensor.out
 #  :use_assembly: FALSE
